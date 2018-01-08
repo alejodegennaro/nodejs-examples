@@ -1,0 +1,15 @@
+{
+  "name": "mpback",
+  "version": "1.0.0",
+  "description": "Restful API for Menu Provider App",
+  "main": "serverMenuProvider.js",
+  "scripts": {
+    "start" : "node serverMenuProvider.js" 	
+  },
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.1",
+    "mongodb": "^2.2.10",
+    "express": "^4.14.0"
+  }
+}
