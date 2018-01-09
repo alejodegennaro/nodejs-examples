@@ -2,12 +2,11 @@ var Tags = require('../models/tags');
 
 function listTags(req, res) {
     Tags.find().lean().select("tags -_id").exec(function (err, result) {
-        res.header("Access-Control-Allow-Origin", "*");
         var resultSet = [];
         result.map(eachResult => {
             resultSet = resultSet.concat(eachResult.tags.split(','));
         })
-        res.send(resultSet);
+        res.json(resultSet);
     })
 }
 

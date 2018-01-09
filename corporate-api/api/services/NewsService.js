@@ -8,15 +8,13 @@ function findAll (req, res){
         limit = number !== "NaN"? number: limit;
     }
     News.find().limit(limit).lean().select("title tags date").exec(function(err, result){
-        res.header("Access-Control-Allow-Origin", "*");
-        res.send(result);
+        res.json(result);
     })
 }
 
 function findById (req, res){
     News.findById(req.params.id).lean().exec(function(err, result){
-        res.header("Access-Control-Allow-Origin", "*");
-        res.send(result);
+        res.json(result);
     })
 }
 
@@ -29,9 +27,9 @@ function saveNews (req, res){
         date:req.body.date
     });
     console.log("SAVE : news");
-    news.save(function(err) {
+    news.save(function(err, result) {
         if (err) throw err;
-        res.send("successfully");
+        res.json(result);
         console.log('successfully - POST');
     });
 }
